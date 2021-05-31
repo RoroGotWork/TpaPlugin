@@ -1,0 +1,13 @@
+name: TpaPlugin
+version: 1.0
+author: Rorocraft
+main: fr.rorocraft.tpa.Main
+commands:
+  tpa:
+    description: Permet de se téléporter au joueur
+  tpahere:
+    description: Permet de demander au joueur de se téléporter
+  tpaaccept:
+    description: Permet d'accepter une demande de téléportation 
+  tpadeny:
+    description: permet d'annuller une demande de téléportation     
