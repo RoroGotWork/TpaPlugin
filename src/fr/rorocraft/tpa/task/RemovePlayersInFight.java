@@ -14,9 +14,9 @@ public class RemovePlayersInFight implements Runnable{
 	}
 	@Override
 	public void run() {
-	   if(!Infos.playersInFight.contains(p)) return;
+	   if(!Infos.PLAYERS_IN_FIGHT.contains(p)) return;
 		
-	   Infos.playersInFight.remove(p);
+	   Infos.PLAYERS_IN_FIGHT.remove(p);
 	   p.sendMessage("Tu peux maintenant utiliser les commandes pour être tp");
 		
 	}

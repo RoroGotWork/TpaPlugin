@@ -25,7 +25,7 @@ if(!(sender instanceof Player)) return true;
 		
 		Player p = (Player) sender;
 		
-		if(Infos.playersInFight.contains(p)) {
+		if(Infos.PLAYERS_IN_FIGHT.contains(p)) {
 			p.sendMessage("Vous êtes en combat");
 			return true;
 		} 
@@ -48,7 +48,7 @@ if(!(sender instanceof Player)) return true;
 		}
 		Player target = Bukkit.getPlayer(targetName);
 		
-		if(Infos.playersInFight.contains(target)) {
+		if(Infos.PLAYERS_IN_FIGHT.contains(target)) {
 			p.sendMessage("Le joueur est en combat");
 			return true;
 		}

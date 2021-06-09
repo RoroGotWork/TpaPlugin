@@ -32,22 +32,22 @@ public class EventManager implements Listener{
 		Player damager = (Player) e.getDamager();
 		Player  p = (Player) e.getEntity();
 		
-		if(Infos.playersInFight.contains(p)) {
-			Infos.playersInFight.remove(p);
-		    Infos.playersInFight.add(p);
+		if(Infos.PLAYERS_IN_FIGHT.contains(p)) {
+			Infos.PLAYERS_IN_FIGHT.remove(p);
+		    Infos.PLAYERS_IN_FIGHT.add(p);
 		   
 		} else {
-			Infos.playersInFight.add(p);
+			Infos.PLAYERS_IN_FIGHT.add(p);
 		    p.sendMessage(ChatColor.RED + "Tu es en combat, tu ne pourra pas te téléporter à un joueur ou te déconnecter pendant 20 secondes");
 		}
 		
 		
-		if(Infos.playersInFight.contains(damager)) {
-			Infos.playersInFight.remove(damager);
-		    Infos.playersInFight.add(damager);  
+		if(Infos.PLAYERS_IN_FIGHT.contains(damager)) {
+			Infos.PLAYERS_IN_FIGHT.remove(damager);
+		    Infos.PLAYERS_IN_FIGHT.add(damager);  
 		   
 		} else {
-			Infos.playersInFight.add(damager);  
+			Infos.PLAYERS_IN_FIGHT.add(damager);  
 		    damager.sendMessage(ChatColor.RED + "Tu es en combat, tu ne pourra pas te téléporter à un joueur pendant 20 secondes");
 		}
 		
@@ -60,12 +60,12 @@ public class EventManager implements Listener{
 	public void onQuit(PlayerQuitEvent e) {
 		Player p =e.getPlayer();
 		
-	 if(Infos.playersInFight.contains(p)) {
+	 if(Infos.PLAYERS_IN_FIGHT.contains(p)) {
 		 if(!p.isOp()) {
 		 p.getInventory().clear();
-		 Infos.players_to_clear.add(p.getUniqueId());
+		 Infos.PLAYERS_TO_CLEAR.add(p.getUniqueId());
 		 }
-		 Infos.playersInFight.remove(p);
+		 Infos.PLAYERS_IN_FIGHT.remove(p);
 	 }
 	 if(Infos.PLAYERS.containsKey(p)) {
 		 Infos.PLAYERS.remove(p);
@@ -83,10 +83,10 @@ public class EventManager implements Listener{
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
 		Player p =e.getPlayer();
-		if(Infos.players_to_clear.contains(p.getUniqueId())) {
+		if(Infos.PLAYERS_TO_CLEAR.contains(p.getUniqueId())) {
 			
 	p.sendMessage(ChatColor.RED +" Ton inventaire à été clear car tu t'es déconnecté pendant un combat");
-	Infos.players_to_clear.remove(p.getUniqueId());
+	Infos.PLAYERS_TO_CLEAR.remove(p.getUniqueId());
 		} else {
 			
 		}
